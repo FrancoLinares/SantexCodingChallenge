@@ -1,12 +1,16 @@
+import { ApolloProvider } from '@apollo/client';
 import { Header } from './components/Header';
 import { ProductList } from './components/ProductList';
+import client from './apollo';
 
 function App() {
   return (
     <>
       <Header></Header>
       <div>
-        <ProductList></ProductList>
+        <ApolloProvider client={client}>
+          <ProductList></ProductList>
+        </ApolloProvider>
       </div>
     </>
   );
