@@ -1,17 +1,17 @@
 import { ApolloProvider } from '@apollo/client';
 import { Header } from './components/Header';
-import { ProductList } from './components/ProductList';
+import { ProductList } from './components/Products/ProductList';
 import client from './apollo/client';
 
 function App() {
   return (
     <>
-      <Header></Header>
-      <div>
-        <ApolloProvider client={client}>
-          <ProductList></ProductList>
-        </ApolloProvider>
-      </div>
+      <ApolloProvider client={client}>
+        <Header />
+        <div>
+          <ProductList />
+        </div>
+      </ApolloProvider>
     </>
   );
 }
