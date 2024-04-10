@@ -1,6 +1,6 @@
 import { ApolloProvider } from '@apollo/client';
 import { Header } from './components/Header';
-import { ProductList } from './components/Products/ProductList';
+import { ProductList } from './components/Products/ProductList/ProductList';
 import client from './apollo/client';
 import ErrorBoundary from './components/ErrorBoundary';
 

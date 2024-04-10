@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_PRODUCTS } from '../../graphql/queries';
+import { GET_PRODUCTS } from '../../../graphql/queries';
 import {
   getProducts,
   getProducts_products_items_variants,
-} from '../../graphql/__generated__/getProducts';
-import Product from './Product';
+} from '../../../graphql/__generated__/getProducts';
+import Product from '../Product/Product';
 import { Grid, Typography } from '@mui/material';
+import { GENERIC_ERROR } from '../../constants';
 
 export function ProductList() {
   const [take, setTake] = useState(2);
@@ -34,7 +35,7 @@ export function ProductList() {
   }, {} as { [key: string]: getProducts_products_items_variants[] });
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (error) return <h2>{GENERIC_ERROR}</h2>;
 
   return (
     <div>

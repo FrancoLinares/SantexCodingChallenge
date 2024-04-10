@@ -2,9 +2,10 @@ import React from 'react';
 import {
   getProducts_products_items,
   getProducts_products_items_variants,
-} from '../../graphql/__generated__/getProducts';
+} from '../../../graphql/__generated__/getProducts';
 import { Button, CardActions, CardContent, Typography } from '@mui/material';
 import { StyledCard } from './styled';
+import { PRODUCT_CARD_BUTTON_CONTENT } from '../contstants';
 
 const Product = ({
   variant,
@@ -17,7 +18,10 @@ const Product = ({
   const { price, currencyCode, name } = variant;
 
   return (
-    <StyledCard variant="outlined">
+    <StyledCard
+      variant="outlined"
+      data-testid={`product-variant-card-${productName}`}
+    >
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
           {/* Product Type */}
@@ -32,7 +36,7 @@ const Product = ({
       </CardContent>
       <CardActions>
         <Typography>Price: {`${price} ${currencyCode}`}</Typography>
-        <Button size="small">Buy</Button>
+        <Button size="small">{PRODUCT_CARD_BUTTON_CONTENT}</Button>
       </CardActions>
     </StyledCard>
   );
