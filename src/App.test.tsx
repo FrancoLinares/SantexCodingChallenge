@@ -6,7 +6,7 @@ import App from './App';
 
 const renderMockedApp = () =>
   render(
-    <MockedProvider mocks={productsMocks} addTypename={false}>
+    <MockedProvider mocks={[productsMocks]} addTypename={false}>
       <App />
     </MockedProvider>
   );
@@ -33,7 +33,7 @@ describe('App component', () => {
 
     const productsNames = await screen.findAllByTestId('product-name');
     expect(productsNames).toHaveLength(2);
-    const productNamesMocked = productsMocks[0].result.data.products.items.map(
+    const productNamesMocked = productsMocks.result.data.products.items.map(
       ({ name }) => name
     );
     // Verify that the product names are correct
