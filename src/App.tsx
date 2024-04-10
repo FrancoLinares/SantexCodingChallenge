@@ -1,7 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import { Header } from './components/Header';
 import { ProductList } from './components/ProductList';
-import client from './apollo';
+import client from './apollo/client';
 
 function App() {
   return (
