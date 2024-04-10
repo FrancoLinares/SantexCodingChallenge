@@ -13,7 +13,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "graphql": "^15.5.0",
+    "graphql": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -25,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "download:schema": "npx apollo service:download --endpoint=https://demo.vendure.io/shop-api graphql-schema.json",
+    "codegen": "yarn run download:schema && npx apollo codegen:generate --localSchemaFile=graphql-schema.json --target=typescript --tagName=gql"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +48,9 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.9"
+    "@types/graphql": "^14.5.0",
+    "@types/styled-components": "^5.1.9",
+    "apollo": "^2.34.0",
+    "ts-node": "^10.9.2"
   }
 }

@@ -29,6 +29,10 @@ Even thought the app is already connected to a graphql endpoint, the trainee can
 
 ## Scripts
 
+### `yarn codegen`
+
+Generate Graphql types with `yarn run codegen`
+
 ### `yarn start`
 
 Runs the app in the development mode.
@@ -44,3 +48,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### Franco's Changes
 
 - Add .nvmrc for node version. Node v18 is not working, postcss module fails.
+- Add generated Apollo types - `yarn run codegen`
