@@ -49,3 +49,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 - Add .nvmrc for node version. Node v18 is not working, postcss module fails.
 - Add generated Apollo types - `yarn run codegen`
+
+### Implementations I would have liked to perform
+
+- Implement relative paths. For example, `src/components/Products/ProductList/ProductList.tsx` should be `@/components/Products/ProductList/ProductList.tsx`.
+  This will make it easier to maintain the codebase. It's a simple change, but `create-react-app` prevents us from doing so since we need to modify the compiler.
