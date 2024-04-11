@@ -10,6 +10,7 @@ import { Grid, Typography } from '@mui/material';
 import { GENERIC_ERROR } from '../../constants';
 import Pagination from '../../Pagination';
 import { PAGE_SIZE } from '../contstants';
+import { StyledGridItem } from './styled';
 
 export function ProductList() {
   const [page, setPage] = useState(0);
@@ -54,9 +55,9 @@ export function ProductList() {
               alignItems="center"
             >
               {variantsByProduct.map((variant) => (
-                <Grid item xs={12} key={variant.id}>
+                <StyledGridItem item xs={12} key={variant.id}>
                   <Product variant={variant} productName={productName} />
-                </Grid>
+                </StyledGridItem>
               ))}
             </Grid>
           </div>
