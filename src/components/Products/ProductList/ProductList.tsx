@@ -8,18 +8,20 @@ import {
 import Product from '../Product/Product';
 import { Grid, Typography } from '@mui/material';
 import { GENERIC_ERROR } from '../../constants';
+import Pagination from '../../Pagination';
+import { PAGE_SIZE } from '../contstants';
 
 export function ProductList() {
-  const [take, setTake] = useState(2);
-  const [skip, setSkip] = useState(0);
+  const [page, setPage] = useState(0);
 
   const { data, loading, error } = useQuery<getProducts>(GET_PRODUCTS, {
     variables: {
-      take,
-      skip,
+      take: PAGE_SIZE,
+      skip: PAGE_SIZE * page,
     },
   });
 
+  const totalPages = Math.round((data?.products.totalItems || 0) / PAGE_SIZE);
   const products = data?.products.items || [];
   const variantsByProducts = products.reduce((acc, product) => {
     const productName = product.name;
@@ -50,7 +52,6 @@ export function ProductList() {
               direction="row"
               justifyContent="space-around"
               alignItems="center"
-              wrap="nowrap"
             >
               {variantsByProduct.map((variant) => (
                 <Grid item xs={12} key={variant.id}>
@@ -61,6 +62,11 @@ export function ProductList() {
           </div>
         )
       )}
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        setPage={setPage}
+      />
     </div>
   );
 }
