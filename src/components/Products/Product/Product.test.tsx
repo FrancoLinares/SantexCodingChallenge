@@ -40,6 +40,9 @@ describe('Product component', () => {
       await screen.findByText(variant.product.description)
     ).toBeInTheDocument();
 
+    // Image
+    expect(await screen.findByAltText(variant.name)).toBeInTheDocument();
+
     // Button
     expect(
       await screen.findByRole('button', { name: PRODUCT_CARD_BUTTON_CONTENT })

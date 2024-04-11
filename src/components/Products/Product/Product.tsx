@@ -4,7 +4,7 @@ import {
   getProducts_products_items_variants,
 } from '../../../graphql/__generated__/getProducts';
 import { Button, CardActions, CardContent, Typography } from '@mui/material';
-import { StyledCard } from './styled';
+import { StyledCard, StyledImg } from './styled';
 import { PRODUCT_CARD_BUTTON_CONTENT } from '../contstants';
 
 const Product = ({
@@ -16,6 +16,7 @@ const Product = ({
 }) => {
   const { description } = variant.product;
   const { price, currencyCode, name } = variant;
+  const assetURL = variant.product.assets[0].source;
 
   return (
     <StyledCard
@@ -34,6 +35,7 @@ const Product = ({
           {description}
         </Typography>
       </CardContent>
+      <StyledImg src={assetURL} alt={name} />
       <CardActions>
         <Typography>Price: {`${price} ${currencyCode}`}</Typography>
         <Button size="small">{PRODUCT_CARD_BUTTON_CONTENT}</Button>
