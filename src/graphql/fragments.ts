@@ -25,3 +25,33 @@ export const PRODUCT_VARIANT_FIELDS_FRAGMENT = gql`
     currencyCode
   }
 `;
+
+export const ERROR_ORDER_PAGE = {
+  fragments: {
+    OrderModificationError: gql`
+      fragment OrderModificationErrorFields on OrderModificationError {
+        message
+        errorCode
+      }
+    `,
+    OrderLimitError: gql`
+      fragment OrderLimitErrorFields on OrderLimitError {
+        message
+        errorCode
+        maxItems
+      }
+    `,
+    NegativeQuantityError: gql`
+      fragment NegativeQuantityErrorFields on NegativeQuantityError {
+        message
+        errorCode
+      }
+    `,
+    InsufficientStockError: gql`
+      fragment InsufficientStockErrorFields on InsufficientStockError {
+        message
+        errorCode
+      }
+    `,
+  },
+};
