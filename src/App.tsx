@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client';
-import { Header } from './components/Header';
+import { Header } from './components/Header/Header';
 import { ProductList } from './components/Products/ProductList/ProductList';
 import apolloClient from './apollo/client';
 import ErrorBoundary from './components/ErrorBoundary';
