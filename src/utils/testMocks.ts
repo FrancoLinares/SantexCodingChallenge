@@ -5,7 +5,7 @@ export const productsMocks = {
   request: {
     query: GET_PRODUCTS,
     variables: {
-      take: 2,
+      take: 5,
       skip: 0,
     },
   },

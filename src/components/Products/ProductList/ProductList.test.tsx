@@ -4,11 +4,14 @@ import { MockedProvider, MockedResponse } from '@apollo/client/testing';
 import { ProductList } from './ProductList';
 import { productsMocks } from '../../../utils/testMocks';
 import { GENERIC_ERROR } from '../../constants';
+import { OrderProvider } from '../../../providers/OrderProvider';
 
 const renderMockedApp = (mockData: MockedResponse) =>
   render(
     <MockedProvider mocks={[mockData]} addTypename={false}>
-      <ProductList />
+      <OrderProvider>
+        <ProductList />
+      </OrderProvider>
     </MockedProvider>
   );
 

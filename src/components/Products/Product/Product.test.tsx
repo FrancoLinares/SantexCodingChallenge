@@ -7,6 +7,8 @@ import {
   getProducts_products_items_variants,
 } from '../../../graphql/__generated__/getProducts';
 import { PRODUCT_CARD_BUTTON_CONTENT } from '../contstants';
+import { OrderProvider } from '../../../providers/OrderProvider';
+import { MockedProvider } from '@apollo/client/testing';
 
 const renderMockedApp = ({
   productName,
@@ -14,7 +16,14 @@ const renderMockedApp = ({
 }: {
   productName: getProducts_products_items['name'];
   variant: getProducts_products_items_variants;
-}) => render(<Product variant={variant} productName={productName} />);
+}) =>
+  render(
+    <MockedProvider mocks={[productsMocks]} addTypename={false}>
+      <OrderProvider>
+        <Product variant={variant} productName={productName} />
+      </OrderProvider>
+    </MockedProvider>
+  );
 
 describe('Product component', () => {
   afterEach(() => {

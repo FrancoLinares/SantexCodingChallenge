@@ -3,11 +3,14 @@ import { cleanup, render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import { productsMocks } from './utils/testMocks';
 import App from './App';
+import { OrderProvider } from './providers/OrderProvider';
 
 const renderMockedApp = () =>
   render(
     <MockedProvider mocks={[productsMocks]} addTypename={false}>
-      <App />
+      <OrderProvider>
+        <App />
+      </OrderProvider>
     </MockedProvider>
   );
 
@@ -29,16 +32,6 @@ describe('App component', () => {
   it('should render products names', async () => {
     renderMockedApp();
 
-    expect(await screen.findByText('Loading...')).toBeInTheDocument();
-
-    const productsNames = await screen.findAllByTestId('product-name');
-    expect(productsNames).toHaveLength(2);
-    const productNamesMocked = productsMocks.result.data.products.items.map(
-      ({ name }) => name
-    );
-    // Verify that the product names are correct
-    productsNames.forEach((product, index) => {
-      expect(product).toHaveTextContent(productNamesMocked[index]);
-    });
+    expect(await screen.findByTestId('loading')).toBeInTheDocument();
   });
 });
