@@ -47,10 +47,18 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Franco's Changes
 
-- Add .nvmrc for node version. Node v18 is not working, postcss module fails.
+- Add .nvmrc(and engine package.json) for node version. Node v18 is not working, postcss module fails.
 - Add generated Apollo types - `yarn run codegen`
+- Components Code splitting
+- Persist order code, subTotal and auth token
 
 ### Implementations I would have liked to perform
 
 - Implement relative paths. For example, `src/components/Products/ProductList/ProductList.tsx` should be `@/components/Products/ProductList/ProductList.tsx`.
   This will make it easier to maintain the codebase. It's a simple change, but `create-react-app` prevents us from doing so since we need to modify the compiler.
+- Login page
+- Lazy loading for Apollo client
+- Show cart items(added to Context state)
+- Add more unit test
+- Add E2E test - Playwright
+- Improve desktop and mobile styles
