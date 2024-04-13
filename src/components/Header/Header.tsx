@@ -1,7 +1,13 @@
 import { useMemo } from 'react';
 import useOrder from '../../hooks/useOrder';
 import { currencyFormat } from '../../utils/helpers';
-import { Cart, StyledCartIcon, StyledHeader, SubTotal } from './styled';
+import {
+  Cart,
+  HeaderImg,
+  StyledCartIcon,
+  StyledHeader,
+  SubTotal,
+} from './styled';
 
 export function Header() {
   const { subTotal } = useOrder();
@@ -9,7 +15,7 @@ export function Header() {
 
   return (
     <StyledHeader>
-      <img
+      <HeaderImg
         src="https://santex.wpengine.com/wp-content/uploads/2019/02/logo-santex@3x.png"
         alt="logo"
       />
