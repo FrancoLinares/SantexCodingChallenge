@@ -9,8 +9,9 @@ import Product from '../Product/Product';
 import { Grid, Typography } from '@mui/material';
 import { GENERIC_ERROR } from '../../constants';
 import Pagination from '../../Pagination';
-import { PAGE_SIZE } from '../contstants';
+import { LOADING_TYPES, PAGE_SIZE } from '../contstants';
 import { StyledGridItem } from './styled';
+import Loading from '../../Loading';
 
 export function ProductList() {
   const [page, setPage] = useState(0);
@@ -37,7 +38,8 @@ export function ProductList() {
     return acc;
   }, {} as { [key: string]: getProducts_products_items_variants[] });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return <Loading type={LOADING_TYPES.SKELETON} skeletonQuantity={8} />;
   if (error) return <h2>{GENERIC_ERROR}</h2>;
 
   return (
