@@ -25,7 +25,7 @@ export function Header() {
         </SubTotal>
         <StyledCartIcon
           onClick={() => {
-            console.log('hola');
+            console.log('show orders');
           }}
         />
       </Cart>
