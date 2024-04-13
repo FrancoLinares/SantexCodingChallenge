@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CartIcon } from '../Icons';
+import { CartIcon } from '../UI/Icons';
 
 export const StyledHeader = styled.header`
   display: flex;

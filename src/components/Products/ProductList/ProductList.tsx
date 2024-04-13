@@ -11,7 +11,7 @@ import { GENERIC_ERROR } from '../../constants';
 import Pagination from '../../Pagination';
 import { LOADING_TYPES, PAGE_SIZE } from '../contstants';
 import { StyledGridItem } from './styled';
-import Loading from '../../Loading';
+import Loading from '../../UI/Loading';
 
 export function ProductList() {
   const [page, setPage] = useState(0);
