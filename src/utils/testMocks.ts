@@ -1,3 +1,4 @@
+import { ADD_TO_CART_MUTATION } from '../graphql/mutations';
 import { GET_PRODUCTS } from '../graphql/queries';
 
 export const productsMocks = {
@@ -212,3 +213,33 @@ export const productsMocks = {
     },
   },
 };
+
+export const addToCartMutationMock = ({
+  total,
+  productVariantId,
+  totalQuantity,
+}: {
+  total: number;
+  productVariantId: string;
+  totalQuantity: number;
+}) => ({
+  request: {
+    query: ADD_TO_CART_MUTATION,
+    variables: {
+      productVariantId,
+      quantity: 1,
+    },
+  },
+  result: {
+    data: {
+      addItemToOrder: {
+        code: 'NFNCUJSPGJG8N6R7',
+        id: '5',
+        lines: [],
+        state: 'AddingItems',
+        total,
+        totalQuantity,
+      },
+    },
+  },
+});
