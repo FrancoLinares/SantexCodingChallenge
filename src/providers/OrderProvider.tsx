@@ -5,10 +5,10 @@ import { addItemToOrder_addItemToOrder_Order_lines } from '../graphql/__generate
 export type OrderType = {
   subTotal: number;
   cartItems: addItemToOrder_addItemToOrder_Order_lines[];
-  setSubTotal: React.Dispatch<React.SetStateAction<number>>;
-  setCartItems: React.Dispatch<
-    React.SetStateAction<addItemToOrder_addItemToOrder_Order_lines[]>
-  >;
+  orderCode: string | null;
+  setSubTotal: React.Dispatch<React.SetStateAction<OrderType['subTotal']>>;
+  setCartItems: React.Dispatch<React.SetStateAction<OrderType['cartItems']>>;
+  setOrderCode: React.Dispatch<React.SetStateAction<OrderType['orderCode']>>;
 };
 
 export const OrderContext = createContext<OrderType | undefined>(undefined);
@@ -16,12 +16,15 @@ export const OrderContext = createContext<OrderType | undefined>(undefined);
 export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
   const [subTotal, setSubTotal] = useState<OrderType['subTotal']>(0);
   const [cartItems, setCartItems] = useState<OrderType['cartItems']>([]);
+  const [orderCode, setOrderCode] = useState<OrderType['orderCode']>(null);
 
   const context = {
     subTotal,
     cartItems,
+    orderCode,
     setSubTotal,
     setCartItems,
+    setOrderCode,
   };
 
   return (

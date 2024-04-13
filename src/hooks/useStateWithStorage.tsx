@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function useStateWithStorage(
   key: string,
-  defaultValue: string | number
+  defaultValue: string | number | null
 ) {
   // Retrieve the state from local storage or use the initial value
   const [state, setState] = useState(() => {

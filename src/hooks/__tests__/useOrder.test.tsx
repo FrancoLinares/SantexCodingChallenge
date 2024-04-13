@@ -2,7 +2,6 @@ import React from 'react';
 import { cleanup, renderHook } from '@testing-library/react-hooks';
 import useOrder from '../useOrder';
 import { OrderContext, OrderProvider } from '../../providers/OrderProvider';
-import { act } from '@testing-library/react';
 
 const mockedSetState = jest.fn();
 
@@ -25,15 +24,19 @@ describe('useOrder Hook', () => {
   const renderUseOrderHookContextMocked = ({
     subTotal = 0,
     setSubTotal,
+    orderCode = null,
   }: {
     subTotal?: number;
     setSubTotal?: any;
+    orderCode?: string | null;
   }) => {
     let mockContext = {
       subTotal,
       setSubTotal: setSubTotal || mockSetSubTotal,
       cartItems: [],
       setCartItems: jest.fn(),
+      orderCode,
+      setOrderCode: jest.fn(),
     };
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
@@ -63,16 +66,21 @@ describe('useOrder Hook', () => {
   it('should update the context state when subTotal from localStorage exist and context subTotal is default value', () => {
     const {
       result: {
-        current: { subTotal },
+        current: { subTotal, orderCode },
       },
     } = renderUseOrderHook();
 
-    act(() => expect(subTotal).toBe(subTotalMock));
+    expect(subTotal).toBe(subTotalMock);
+    // For the propose of this test, useStateWithStorage won't be mocked again with more specific data
+    expect(orderCode).toBe(subTotalMock);
   });
 
   it('should update the localStorage state when subTotal from context changes', () => {
-    renderUseOrderHookContextMocked({ subTotal: 20 });
+    renderUseOrderHookContextMocked({ subTotal: 20, orderCode: '123' });
 
+    // Called for subTotal
     expect(mockedSetState).toHaveBeenCalledWith(20);
+    // Called for orderCode
+    expect(mockedSetState).toHaveBeenCalledWith('123');
   });
 });

@@ -21,7 +21,7 @@ const Product = ({
   const { description } = variant.product;
   const { id: productVariantId, price, currencyCode, name } = variant;
   const assetURL = variant.product.assets[0].source;
-  const { setSubTotal, setCartItems } = useOrder();
+  const { setSubTotal, setCartItems, setOrderCode } = useOrder();
 
   const onCompleteMutation = ({
     addItemToOrder,
@@ -37,6 +37,8 @@ const Product = ({
       setSubTotal(order?.total);
       // Add the new product to the cart shared state
       setCartItems(order?.lines || []);
+      // Persist Order code
+      setOrderCode(order.code);
     }
   };
 
