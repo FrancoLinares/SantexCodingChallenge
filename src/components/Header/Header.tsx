@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useOrder } from '../../hooks/useOrder';
+import useOrder from '../../hooks/useOrder';
 import { currencyFormat } from '../../utils/helpers';
 import { Cart, StyledCartIcon, StyledHeader, SubTotal } from './styled';
 

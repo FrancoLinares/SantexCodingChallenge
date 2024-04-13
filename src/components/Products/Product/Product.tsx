@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   getProducts_products_items,
   getProducts_products_items_variants,
@@ -8,7 +8,7 @@ import { StyledCard, StyledImg } from './styled';
 import { PRODUCT_CARD_BUTTON_CONTENT } from '../contstants';
 import { useMutation } from '@apollo/client';
 import { ADD_TO_CART_MUTATION } from '../../../graphql/mutations';
-import { useOrder } from '../../../hooks/useOrder';
+import useOrder from '../../../hooks/useOrder';
 import { addItemToOrder_addItemToOrder_Order } from '../../../graphql/__generated__/addItemToOrder';
 
 const Product = ({
