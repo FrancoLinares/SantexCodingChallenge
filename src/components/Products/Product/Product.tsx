@@ -40,7 +40,7 @@ const Product = ({
     }
   };
 
-  const [addToCart, { data, loading, error }] = useMutation<{
+  const [addToCart] = useMutation<{
     addItemToOrder: addItemToOrder_addItemToOrder_Order;
   }>(ADD_TO_CART_MUTATION, { onCompleted: onCompleteMutation });
 
