@@ -11,7 +11,7 @@ export default function Variants({
   return (
     <Grid container sx={{ justifyContent: 'center' }}>
       {[...new Array(skeletonQuantity)].map((_, i) => (
-        <Grid item>
+        <Grid item key={`${i}-skeleton`}>
           <Box sx={{ width: 220, marginRight: 0.5, m: 3 }}>
             <Skeleton variant="rectangular" animation="wave" height={120} />
             <br />
