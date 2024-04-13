@@ -7,6 +7,5 @@ export const StyledCard = styled(Card)`
 `;
 
 export const StyledImg = styled.img`
-  height: 250px;
   width: 100%;
 `;
