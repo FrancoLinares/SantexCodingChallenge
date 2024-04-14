@@ -57,6 +57,10 @@ Happy coding!
 
 To create the build use `yarn build`
 
+## URL of the deployed project
+
+https://FrancoLinares.github.io/SantexCodingChallenge
+
 ## Franco's Changes
 
 ### Description and explanation of decision making
