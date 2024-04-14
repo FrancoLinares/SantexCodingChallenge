@@ -10,6 +10,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_TO_CART_MUTATION } from '../../../graphql/mutations';
 import useOrder from '../../../hooks/useOrder';
 import { addItemToOrder_addItemToOrder_Order } from '../../../graphql/__generated__/addItemToOrder';
+import { ITEM_ADDED_SUCCESSFULLY } from '../../constants';
 
 const Product = ({
   variant,
@@ -46,16 +47,18 @@ const Product = ({
     addItemToOrder: addItemToOrder_addItemToOrder_Order;
   }>(ADD_TO_CART_MUTATION, { onCompleted: onCompleteMutation });
 
-  const handleBuy = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleBuy = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    addToCart({
+    await addToCart({
       variables: {
         productVariantId,
         // For the purposes of this challenge, only one product can be added
         quantity: 1,
       },
     });
+
+    alert(ITEM_ADDED_SUCCESSFULLY);
   };
 
   return (
