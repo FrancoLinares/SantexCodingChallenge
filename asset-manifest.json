@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/SantexCodingChallenge/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/SantexCodingChallenge/static/js/main.5241cef5.chunk.js",
-    "main.js.map": "/SantexCodingChallenge/static/js/main.5241cef5.chunk.js.map",
-    "runtime-main.js": "/SantexCodingChallenge/static/js/runtime-main.1d1a2ff7.js",
-    "runtime-main.js.map": "/SantexCodingChallenge/static/js/runtime-main.1d1a2ff7.js.map",
+    "main.js": "/SantexCodingChallenge/static/js/main.c5629752.chunk.js",
+    "main.js.map": "/SantexCodingChallenge/static/js/main.c5629752.chunk.js.map",
+    "runtime-main.js": "/SantexCodingChallenge/static/js/runtime-main.c76b1045.js",
+    "runtime-main.js.map": "/SantexCodingChallenge/static/js/runtime-main.c76b1045.js.map",
     "static/js/2.7e0771d3.chunk.js": "/SantexCodingChallenge/static/js/2.7e0771d3.chunk.js",
     "static/js/2.7e0771d3.chunk.js.map": "/SantexCodingChallenge/static/js/2.7e0771d3.chunk.js.map",
     "static/js/3.421eab90.chunk.js": "/SantexCodingChallenge/static/js/3.421eab90.chunk.js",
     "static/js/3.421eab90.chunk.js.map": "/SantexCodingChallenge/static/js/3.421eab90.chunk.js.map",
     "static/js/4.fe28d758.chunk.js": "/SantexCodingChallenge/static/js/4.fe28d758.chunk.js",
     "static/js/4.fe28d758.chunk.js.map": "/SantexCodingChallenge/static/js/4.fe28d758.chunk.js.map",
-    "static/js/5.b4676e30.chunk.js": "/SantexCodingChallenge/static/js/5.b4676e30.chunk.js",
-    "static/js/5.b4676e30.chunk.js.map": "/SantexCodingChallenge/static/js/5.b4676e30.chunk.js.map",
+    "static/js/5.255c2390.chunk.js": "/SantexCodingChallenge/static/js/5.255c2390.chunk.js",
+    "static/js/5.255c2390.chunk.js.map": "/SantexCodingChallenge/static/js/5.255c2390.chunk.js.map",
     "static/js/6.594c4da0.chunk.js": "/SantexCodingChallenge/static/js/6.594c4da0.chunk.js",
     "static/js/6.594c4da0.chunk.js.map": "/SantexCodingChallenge/static/js/6.594c4da0.chunk.js.map",
     "index.html": "/SantexCodingChallenge/index.html",
@@ -20,9 +20,9 @@
     "static/js/2.7e0771d3.chunk.js.LICENSE.txt": "/SantexCodingChallenge/static/js/2.7e0771d3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1d1a2ff7.js",
+    "static/js/runtime-main.c76b1045.js",
     "static/js/2.7e0771d3.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.5241cef5.chunk.js"
+    "static/js/main.c5629752.chunk.js"
   ]
 }
