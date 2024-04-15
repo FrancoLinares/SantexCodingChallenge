@@ -1,3 +1,4 @@
+import { GraphQLError } from 'graphql';
 import { ADD_TO_CART_MUTATION } from '../graphql/mutations';
 import { GET_PRODUCTS } from '../graphql/queries';
 
@@ -241,5 +242,22 @@ export const addToCartMutationMock = ({
         totalQuantity,
       },
     },
+  },
+});
+
+export const addToCartMutationErrorMock = ({
+  productVariantId,
+}: {
+  productVariantId: string;
+}) => ({
+  request: {
+    query: ADD_TO_CART_MUTATION,
+    variables: {
+      productVariantId,
+      quantity: 1,
+    },
+  },
+  result: {
+    errors: [new GraphQLError('Error!')],
   },
 });

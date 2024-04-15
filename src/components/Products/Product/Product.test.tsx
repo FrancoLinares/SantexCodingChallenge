@@ -1,6 +1,10 @@
 import '@testing-library/jest-dom';
-import { act, cleanup, render, screen } from '@testing-library/react';
-import { addToCartMutationMock, productsMocks } from '../../../utils/testMocks';
+import { cleanup, render, screen } from '@testing-library/react';
+import {
+  addToCartMutationErrorMock,
+  addToCartMutationMock,
+  productsMocks,
+} from '../../../utils/testMocks';
 import Product from './Product';
 import {
   getProducts_products_items,
@@ -11,6 +15,7 @@ import { OrderProvider } from '../../../providers/OrderProvider';
 import { MockedProvider, MockedResponse } from '@apollo/client/testing';
 import { Header } from '../../Header/Header';
 import { currencyFormat } from '../../../utils/helpers';
+import { ITEM_ADD_ERROR_GENERIC } from '../../constants';
 
 const renderMockedApp = ({
   productName,
@@ -61,6 +66,33 @@ describe('Product component', () => {
     expect(
       await screen.findByRole('button', { name: PRODUCT_CARD_BUTTON_CONTENT })
     ).toBeInTheDocument();
+  });
+
+  it('should show error when BUY button is clicked', async () => {
+    const variant = productsMocks.result.data.products.items[0]
+      .variants[0] as getProducts_products_items_variants;
+
+    jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+    renderMockedApp({
+      productName: 'Laptop',
+      variant,
+      mockedData: addToCartMutationErrorMock({
+        productVariantId: variant.id,
+      }),
+    });
+
+    const button = await screen.findByRole('button', {
+      name: PRODUCT_CARD_BUTTON_CONTENT,
+    });
+    button.click();
+
+    const subTotalContent = await screen.findByTestId('subtotal');
+    expect(subTotalContent).not.toHaveTextContent(
+      currencyFormat(variant.price)
+    );
+
+    expect(window.alert).toHaveBeenCalledWith(ITEM_ADD_ERROR_GENERIC);
   });
 
   it('should update the state when BUY button is clicked', async () => {
