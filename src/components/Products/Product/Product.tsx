@@ -10,7 +10,10 @@ import { useMutation } from '@apollo/client';
 import { ADD_TO_CART_MUTATION } from '../../../graphql/mutations';
 import useOrder from '../../../hooks/useOrder';
 import { addItemToOrder_addItemToOrder_Order } from '../../../graphql/__generated__/addItemToOrder';
-import { ITEM_ADDED_SUCCESSFULLY } from '../../constants';
+import {
+  ITEM_ADDED_SUCCESSFULLY,
+  ITEM_ADD_ERROR_GENERIC,
+} from '../../constants';
 
 const Product = ({
   variant,
@@ -43,9 +46,16 @@ const Product = ({
     }
   };
 
+  const onErrorMutation = () => {
+    alert(ITEM_ADD_ERROR_GENERIC);
+  };
+
   const [addToCart] = useMutation<{
     addItemToOrder: addItemToOrder_addItemToOrder_Order;
-  }>(ADD_TO_CART_MUTATION, { onCompleted: onCompleteMutation });
+  }>(ADD_TO_CART_MUTATION, {
+    onCompleted: onCompleteMutation,
+    onError: onErrorMutation,
+  });
 
   const handleBuy = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
